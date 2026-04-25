@@ -32,9 +32,9 @@
 }
 
 @theme inline {
-  --font-sans: var(font-blauer), sans-serif;
-  --font-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
-  --font-display: var(--font-oswald), 'Oswald', sans-serif;
+  --font-sans: var(--font-blauer), sans-serif;
+  --font-mono: var(--font-teenage), monospace;
+  --font-display: var(--font-blauer), sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

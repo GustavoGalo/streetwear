@@ -55,6 +55,18 @@ export const blauerNue = localFont({
   display: 'swap',
 })
 
+export const teenageDreams = localFont({
+  src: [
+    {
+      path: '../public/fonts/TeenageDreamsFont.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-teenage',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'Streetwear VS Moda | TCC 2026',
   description: 'A moda que você veste tem origem. A gente veio pra te mostrar qual é! Um projeto de TCC sobre a história e cultura do streetwear.',
@@ -81,7 +93,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="bg-background">
-      <body className={`${oswald.variable} ${jetbrainsMono.variable} ${blauerNue.variable} font-sans antialiased`}>
+      <body className={`${oswald.variable} ${jetbrainsMono.variable} ${blauerNue.variable} ${teenageDreams.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
