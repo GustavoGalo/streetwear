@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { X, Lock, Eye } from "lucide-react"
+import { submitToGoogleForms } from "@/app/actions"
 
 // Placeholder gallery images - will be replaced after the event
 const galleryImages = [
@@ -47,20 +48,18 @@ export function Gallery() {
     }
   }
 
-  const handleSubmit = () => {
-    // In a real app, this would send to Google Forms or Airtable
+  const handleSubmit = async () => {
     console.log("Feedback submitted:", feedback)
+    await submitToGoogleForms(feedback)
     setSubmitted(true)
     
     // Save completion to localStorage
     localStorage.setItem(STORAGE_KEY, "true")
-    
-    setTimeout(() => {
-      setShowFeedbackModal(false)
-      setSubmitted(false)
-      setHasCompletedFeedback(true)
-      setFeedback({ rating: -1, helped: "", comment: "" })
-    }, 2000)
+
+    setShowFeedbackModal(false)
+    setSubmitted(false)
+    setHasCompletedFeedback(true)
+    setFeedback({ rating: -1, helped: "", comment: "" })
   }
 
   const isFormValid = feedback.rating >= 0 && feedback.helped !== ""
