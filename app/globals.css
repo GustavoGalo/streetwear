@@ -32,7 +32,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-sans: var(font-blauer), sans-serif;
   --font-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
   --font-display: var(--font-oswald), 'Oswald', sans-serif;
   --color-background: var(--background);
