@@ -86,7 +86,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-[family-name:var(--font-jetbrains)] text-sm md:text-base text-muted-foreground mb-8 tracking-wide"
         >
-          26 de abril de 2025 · Tremoço F.C. · Sorocaba, SP
+          26 de abril de 2026 · Tremoço F.C. · Sorocaba, SP
         </motion.p>
 
         <motion.p

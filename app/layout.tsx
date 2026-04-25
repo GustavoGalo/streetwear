@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Streetwear VS Moda | TCC 2025',
+  title: 'Streetwear VS Moda | TCC 2026',
   description: 'A moda que você veste tem origem. A gente veio pra te mostrar qual é! Um projeto de TCC sobre a história e cultura do streetwear.',
   keywords: ['streetwear', 'moda', 'cultura urbana', 'hip-hop', 'TCC', 'Sorocaba'],
   authors: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     { name: 'Livia Campos Lisboa' }
   ],
   openGraph: {
-    title: 'Streetwear VS Moda | TCC 2025',
+    title: 'Streetwear VS Moda | TCC 2026',
     description: 'A moda que você veste tem origem. A gente veio pra te mostrar qual é!',
     type: 'website',
   }

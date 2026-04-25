@@ -1,37 +1,36 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { Instagram } from "lucide-react"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Instagram } from "lucide-react";
 
 const supporters = [
   {
     name: "Tremoço F.C.",
     handle: "@tremocofc",
-    type: "venue"
+    image: "/imgs/logo-tremoco.png",
   },
   {
     name: "Novo de Novo",
     handle: "@eusonovodenovo",
-    type: "partner"
+    image: "/imgs/logo-eusonovodenovo.jpg",
   },
   {
     name: "Fotografia",
     handle: "@2t.teus",
-    type: "photographer"
+    image: "/imgs/logo-teus.jpg",
   },
   {
     name: "Gustavo Produções",
     handle: "Desenvolvedor",
-    type: "developer"
-  }
-]
+  },
+];
 
 export function Supporters() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
@@ -79,7 +78,7 @@ export function Supporters() {
             QUEM TORNOU TUDO ISSO POSSÍVEL
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Esse projeto só existiu porque teve gente que acreditou nele. 
+            Esse projeto só existiu porque teve gente que acreditou nele.
             Obrigada a cada um que fez parte dessa história.
           </p>
         </motion.div>
@@ -113,13 +112,23 @@ export function Supporters() {
               <div className="bg-card border border-border p-6 text-center hover:border-primary/50 transition-colors h-full">
                 {/* Avatar placeholder */}
                 <div className="w-20 h-20 mx-auto mb-4 bg-muted rounded-full flex items-center justify-center">
-                  <span className="font-[family-name:var(--font-oswald)] text-2xl font-bold text-muted-foreground">
-                    {supporter.name.charAt(0)}
-                  </span>
+                  {supporter.image ? (
+                    <Image
+                      src={supporter.image}
+                      alt="Obrigado"
+                      width={300}
+                      height={80}
+                      className="object-contain rounded-full"
+                    />
+                  ) : (
+                    <span className="font-[family-name:var(--font-oswald)] text-2xl font-bold text-muted-foreground">
+                      {supporter.name.charAt(0)}
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="font-semibold text-lg mb-1">{supporter.name}</h3>
-                
+
                 {supporter.handle.startsWith("@") ? (
                   <a
                     href={`https://instagram.com/${supporter.handle.slice(1)}`}
@@ -131,7 +140,9 @@ export function Supporters() {
                     {supporter.handle}
                   </a>
                 ) : (
-                  <p className="text-sm text-muted-foreground">{supporter.handle}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {supporter.handle}
+                  </p>
                 )}
               </div>
             </motion.div>
@@ -145,9 +156,12 @@ export function Supporters() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-12 text-muted-foreground text-sm"
         >
-          <p>Grafiteiros e colaboradores: em breve mais informações serão adicionadas aqui.</p>
+          <p>
+            Grafiteiros e colaboradores: em breve mais informações serão
+            adicionadas aqui.
+          </p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

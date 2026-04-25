@@ -124,7 +124,7 @@ export function Credits() {
 
           {/* Copyright */}
           <p className="text-sm text-primary-foreground/50">
-            © 2025 Streetwear VS Moda. Todos os direitos reservados.
+            © 2026 Streetwear VS Moda. Todos os direitos reservados.
           </p>
         </motion.div>
       </div>
