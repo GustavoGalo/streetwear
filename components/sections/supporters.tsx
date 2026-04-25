@@ -37,7 +37,7 @@ export function Supporters() {
       {/* Collage: Globe icons - top left */}
       <div className="absolute -top-10 -left-10 opacity-15 hidden md:block -rotate-12 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/16-8BqnUYWsEzNmxOQ3oqwd4n4T9VE9NZ.png"
+          src="imgs/content/connection.webp"
           alt=""
           width={350}
           height={260}
@@ -48,7 +48,7 @@ export function Supporters() {
       {/* Collage: Graffiti art - bottom right */}
       <div className="absolute -right-20 -bottom-10 opacity-15 hidden lg:block rotate-6 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/11-FOkQcqxKwPpLrG5qFtwIwgwf0ntXNq.png"
+          src="imgs/content/plate.webp"
           alt=""
           width={400}
           height={230}
@@ -59,7 +59,7 @@ export function Supporters() {
       {/* Collage: Jacket - left side subtle */}
       <div className="absolute left-0 bottom-1/4 opacity-10 hidden xl:block rotate-12 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10-SVYBJ6DxvK1B0t1RKsgzPit1UFAXPX.png"
+          src="imgs/content/chair.webp"
           alt=""
           width={280}
           height={380}
@@ -91,7 +91,7 @@ export function Supporters() {
           className="flex justify-center mb-16"
         >
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14-SznvRzQv5pLINQQ0DiLlDyamavpNit.png"
+            src="imgs/content/thanks.webp"
             alt="Obrigado"
             width={300}
             height={80}
@@ -115,7 +115,7 @@ export function Supporters() {
                   {supporter.image ? (
                     <Image
                       src={supporter.image}
-                      alt="Obrigado"
+                      alt={`Apoiador ${supporter.name}`}
                       width={300}
                       height={80}
                       className="object-contain rounded-full"

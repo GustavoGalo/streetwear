@@ -42,7 +42,7 @@ export function Navigation() {
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12-GvOmHr6PfQzEgyZaEPcJxgsLaQkPmW.png"
+                src="imgs/content/streetwearvsmoda.webp"
                 alt="Streetwear VS Moda"
                 width={180}
                 height={60}
@@ -99,8 +99,8 @@ export function Navigation() {
           {/* Mobile menu footer */}
           <div className="mt-auto pb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-9AjAvYtu52cOxHx09lcNHSS4LI9anv.png"
-              alt="TCC 25"
+              src="imgs/content/barcode.webp"
+              alt="TCC 26"
               width={100}
               height={25}
               className="invert opacity-50"

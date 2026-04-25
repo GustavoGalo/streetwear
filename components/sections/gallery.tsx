@@ -69,7 +69,7 @@ export function Gallery() {
       {/* Collage: Urban poles - top right */}
       <div className="absolute -right-10 top-10 opacity-10 hidden lg:block rotate-6 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/24-QDrzrJFfZSPOUCnP6pOW5mjHox5KDC.png"
+          src="imgs/content/wire.webp"
           alt=""
           width={200}
           height={300}
@@ -80,7 +80,7 @@ export function Gallery() {
       {/* Collage: Building - bottom left */}
       <div className="absolute -left-20 -bottom-20 opacity-10 hidden xl:block -rotate-3 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/13-jhghy9Kh3OjZgXScGOD5iNxIWStMpN.png"
+          src="imgs/content/urban.webp"
           alt=""
           width={350}
           height={400}

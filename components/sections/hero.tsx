@@ -9,7 +9,7 @@ export function Hero() {
       {/* Background texture */}
       <div className="absolute inset-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/8-5LEjOmzAb3C04IJs8jaIwqD53y4KUt.png"
+          src="imgs/content/jeans.webp"
           alt=""
           fill
           className="object-cover"
@@ -21,7 +21,7 @@ export function Hero() {
       {/* Decorative collage elements */}
       <div className="absolute top-8 right-8 opacity-60 z-20">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-9AjAvYtu52cOxHx09lcNHSS4LI9anv.png"
+          src="imgs/content/barcode.webp"
           alt="Código de barras TCC"
           width={120}
           height={30}
@@ -32,7 +32,7 @@ export function Hero() {
       {/* Skatista silhouette - bottom left */}
       <div className="absolute -bottom-20 -left-20 opacity-30 hidden lg:block rotate-12 z-10">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/21-iNWhlRh8GXPi9dZpAtIdIaRsd7xtVD.png"
+          src="imgs/content/subway.webp"
           alt=""
           width={350}
           height={400}
@@ -43,7 +43,7 @@ export function Hero() {
       {/* Urban poles - right side */}
       <div className="absolute top-20 -right-10 opacity-20 hidden md:block z-10">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/24-QDrzrJFfZSPOUCnP6pOW5mjHox5KDC.png"
+          src="imgs/content/wire.webp"
           alt=""
           width={250}
           height={350}
@@ -54,7 +54,7 @@ export function Hero() {
       {/* Star logo - decorative */}
       <div className="absolute top-1/4 left-8 opacity-40 hidden lg:block z-10 -rotate-12">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/19-g20zA3EqPku3pMVxGOH7xywelFgbx1.png"
+          src="imgs/content/star.webp"
           alt=""
           width={60}
           height={60}
@@ -71,7 +71,7 @@ export function Hero() {
           className="mb-8"
         >
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12-GvOmHr6PfQzEgyZaEPcJxgsLaQkPmW.png"
+            src="imgs/content/streetwearvsmoda.webp"
             alt="Streetwear VS Moda"
             width={600}
             height={200}

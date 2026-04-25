@@ -14,7 +14,7 @@ export function Credits() {
       {/* Texture overlay */}
       <div className="absolute inset-0 opacity-20">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/8-5LEjOmzAb3C04IJs8jaIwqD53y4KUt.png"
+          src="imgs/content/jeans.webp"
           alt=""
           fill
           className="object-cover mix-blend-overlay"
@@ -24,7 +24,7 @@ export function Credits() {
       {/* Collage: Skatista - left */}
       <div className="absolute -left-20 bottom-0 opacity-20 hidden lg:block -rotate-6 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/21-iNWhlRh8GXPi9dZpAtIdIaRsd7xtVD.png"
+          src="imgs/content/subway.webp"
           alt=""
           width={280}
           height={350}
@@ -35,7 +35,7 @@ export function Credits() {
       {/* Collage: Urban poles - right */}
       <div className="absolute -right-10 top-10 opacity-15 hidden md:block rotate-12 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/24-QDrzrJFfZSPOUCnP6pOW5mjHox5KDC.png"
+          src="imgs/content/wire.webp"
           alt=""
           width={180}
           height={260}
@@ -46,7 +46,7 @@ export function Credits() {
       {/* Collage: Stars scattered */}
       <div className="absolute top-20 left-20 opacity-30 hidden xl:block rotate-12 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/19-g20zA3EqPku3pMVxGOH7xywelFgbx1.png"
+          src="imgs/content/star.webp"
           alt=""
           width={40}
           height={40}
@@ -55,7 +55,7 @@ export function Credits() {
       </div>
       <div className="absolute bottom-32 right-32 opacity-20 hidden xl:block -rotate-45 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/19-g20zA3EqPku3pMVxGOH7xywelFgbx1.png"
+          src="imgs/content/star.webp"
           alt=""
           width={30}
           height={30}
@@ -73,7 +73,7 @@ export function Credits() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/19-g20zA3EqPku3pMVxGOH7xywelFgbx1.png"
+              src="imgs/content/star.webp"
               alt="Logo Streetwear VS Moda"
               width={60}
               height={60}
@@ -114,8 +114,8 @@ export function Credits() {
           {/* Barcode */}
           <div className="flex justify-center mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-9AjAvYtu52cOxHx09lcNHSS4LI9anv.png"
-              alt="TCC 25 v0.1"
+              src="imgs/content/barcode.webp"
+              alt="TCC 26 v0.1"
               width={150}
               height={40}
               className="invert opacity-60"

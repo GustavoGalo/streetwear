@@ -38,7 +38,7 @@ export function History() {
       {/* Collage: Graffiti art - left side */}
       <div className="absolute -left-20 top-1/3 opacity-20 hidden lg:block -rotate-12 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/11-FOkQcqxKwPpLrG5qFtwIwgwf0ntXNq.png"
+          src="imgs/content/plate.webp"
           alt=""
           width={350}
           height={200}
@@ -49,7 +49,7 @@ export function History() {
       {/* Collage: Globe icons - right side */}
       <div className="absolute -right-16 bottom-1/4 opacity-15 hidden xl:block rotate-12 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/16-8BqnUYWsEzNmxOQ3oqwd4n4T9VE9NZ.png"
+          src="imgs/content/connection.webp"
           alt=""
           width={300}
           height={220}
@@ -60,7 +60,7 @@ export function History() {
       {/* Collage: Skatista - bottom center hint */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 opacity-10 hidden md:block z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/21-iNWhlRh8GXPi9dZpAtIdIaRsd7xtVD.png"
+          src="imgs/content/subway.webp"
           alt=""
           width={200}
           height={250}

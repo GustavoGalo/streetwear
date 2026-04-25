@@ -17,7 +17,7 @@ export function About() {
       {/* Collage: Jacket with cap - right side */}
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-25 hidden lg:block rotate-6 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10-SVYBJ6DxvK1B0t1RKsgzPit1UFAXPX.png"
+          src="imgs/content/chair.webp"
           alt=""
           width={450}
           height={600}
@@ -28,7 +28,7 @@ export function About() {
       {/* Collage: Urban building - left side */}
       <div className="absolute -left-32 bottom-0 opacity-15 hidden xl:block -rotate-6 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/13-jhghy9Kh3OjZgXScGOD5iNxIWStMpN.png"
+          src="imgs/content/urban.webp"
           alt=""
           width={400}
           height={500}
@@ -39,7 +39,7 @@ export function About() {
       {/* Collage: Star decoration */}
       <div className="absolute right-20 top-20 opacity-20 hidden md:block rotate-45 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/19-g20zA3EqPku3pMVxGOH7xywelFgbx1.png"
+          src="imgs/content/star.webp"
           alt=""
           width={40}
           height={40}
