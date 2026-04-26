@@ -6,6 +6,7 @@ import { useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { X, Lock, Eye } from "lucide-react"
 import { submitToGoogleForms } from "@/app/actions"
+import { Fascinate } from "next/font/google"
 
 // Placeholder gallery images - will be replaced after the event
 const galleryImages = [
@@ -15,9 +16,6 @@ const galleryImages = [
   { id: 4, alt: "Foto do evento 4" },
   { id: 5, alt: "Foto do evento 5" },
   { id: 6, alt: "Foto do evento 6" },
-  { id: 7, alt: "Foto do evento 7" },
-  { id: 8, alt: "Foto do evento 8" },
-  { id: 9, alt: "Foto do evento 9" },
 ]
 
 const STORAGE_KEY = "streetwear-feedback-completed"
@@ -33,6 +31,7 @@ export function Gallery() {
     comment: ""
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   // Check if user has already completed feedback
   useEffect(() => {
@@ -49,17 +48,25 @@ export function Gallery() {
   }
 
   const handleSubmit = async () => {
-    console.log("Feedback submitted:", feedback)
-    await submitToGoogleForms(feedback)
-    setSubmitted(true)
-    
-    // Save completion to localStorage
-    localStorage.setItem(STORAGE_KEY, "true")
+    if (isLoading || !isFormValid) return
+    setIsLoading(true)
+    try {
+      console.log(feedback)
+      await submitToGoogleForms(feedback)
+      setSubmitted(true)
+      
+      // Save completion to localStorage
+      localStorage.setItem(STORAGE_KEY, "true")
 
-    setShowFeedbackModal(false)
-    setSubmitted(false)
-    setHasCompletedFeedback(true)
-    setFeedback({ rating: -1, helped: "", comment: "" })
+      setShowFeedbackModal(false)
+      setSubmitted(false)
+      setHasCompletedFeedback(true)
+      setFeedback({ rating: -1, helped: "", comment: "" })
+    } catch (error) {
+      console.error("Erro ao enviar feedback:", error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const isFormValid = feedback.rating >= 0 && feedback.helped !== ""
@@ -263,14 +270,14 @@ export function Gallery() {
                       {/* Submit button */}
                       <button
                         onClick={handleSubmit}
-                        disabled={!isFormValid}
+                        disabled={!isFormValid || isLoading}
                         className={`w-full py-3 font-semibold transition-colors ${
-                          isFormValid
-                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                          (isFormValid && !isLoading)
+                            ? "bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
                             : "bg-muted text-muted-foreground cursor-not-allowed"
                         }`}
                       >
-                        {isFormValid ? "Desbloquear Galeria" : "Responda as perguntas obrigatórias"}
+                        {isLoading ? "Enviando..." : (isFormValid ? "Desbloquear Galeria" : "Responda as perguntas obrigatórias")}
                       </button>
                     </>
                   )}
