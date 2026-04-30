@@ -6,16 +6,109 @@ import { useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { X, Lock, Eye } from "lucide-react"
 import { submitToGoogleForms } from "@/app/actions"
-import { Fascinate } from "next/font/google"
+import { ImageGallery } from "../image-gallery"
 
-// Placeholder gallery images - will be replaced after the event
 const galleryImages = [
-  { id: 1, alt: "Foto do evento 1" },
-  { id: 2, alt: "Foto do evento 2" },
-  { id: 3, alt: "Foto do evento 3" },
-  { id: 4, alt: "Foto do evento 4" },
-  { id: 5, alt: "Foto do evento 5" },
-  { id: 6, alt: "Foto do evento 6" },
+  { id: 1, src: "/gallery/IMG_3773.webp", alt: "Foto do evento 1" },
+  { id: 2, src: "/gallery/IMG_3774.webp", alt: "Foto do evento 2" },
+  { id: 3, src: "/gallery/IMG_3775.webp", alt: "Foto do evento 3" },
+  { id: 4, src: "/gallery/IMG_3777.webp", alt: "Foto do evento 4" },
+  { id: 5, src: "/gallery/IMG_3778.webp", alt: "Foto do evento 5" },
+  { id: 6, src: "/gallery/IMG_3779.webp", alt: "Foto do evento 6" },
+  { id: 7, src: "/gallery/IMG_3780.webp", alt: "Foto do evento 7" },
+  { id: 8, src: "/gallery/IMG_3781.webp", alt: "Foto do evento 8" },
+  { id: 9, src: "/gallery/IMG_3783.webp", alt: "Foto do evento 9" },
+  { id: 10, src: "/gallery/IMG_3784.webp", alt: "Foto do evento 10" },
+  { id: 11, src: "/gallery/IMG_3785.webp", alt: "Foto do evento 11" },
+  { id: 12, src: "/gallery/IMG_3787.webp", alt: "Foto do evento 12" },
+  { id: 13, src: "/gallery/IMG_3788.webp", alt: "Foto do evento 13" },
+  { id: 14, src: "/gallery/IMG_3789.webp", alt: "Foto do evento 14" },
+  { id: 15, src: "/gallery/IMG_3790.webp", alt: "Foto do evento 15" },
+  { id: 16, src: "/gallery/IMG_3793.webp", alt: "Foto do evento 16" },
+  { id: 17, src: "/gallery/IMG_3796.webp", alt: "Foto do evento 17" },
+  { id: 18, src: "/gallery/IMG_3797.webp", alt: "Foto do evento 18" },
+  { id: 19, src: "/gallery/IMG_3800.webp", alt: "Foto do evento 19" },
+  { id: 20, src: "/gallery/IMG_3801.webp", alt: "Foto do evento 20" },
+  { id: 21, src: "/gallery/IMG_3802.webp", alt: "Foto do evento 21" },
+  { id: 22, src: "/gallery/IMG_3807.webp", alt: "Foto do evento 22" },
+  { id: 23, src: "/gallery/IMG_3812.webp", alt: "Foto do evento 23" },
+  { id: 24, src: "/gallery/IMG_3817.webp", alt: "Foto do evento 24" },
+  { id: 25, src: "/gallery/IMG_3827.webp", alt: "Foto do evento 25" },
+  { id: 26, src: "/gallery/IMG_3830.webp", alt: "Foto do evento 26" },
+  { id: 27, src: "/gallery/IMG_3836.webp", alt: "Foto do evento 27" },
+  { id: 28, src: "/gallery/IMG_3837.webp", alt: "Foto do evento 28" },
+  { id: 29, src: "/gallery/IMG_3841.webp", alt: "Foto do evento 29" },
+  { id: 30, src: "/gallery/IMG_3843.webp", alt: "Foto do evento 30" },
+  { id: 31, src: "/gallery/IMG_3844.webp", alt: "Foto do evento 31" },
+  { id: 32, src: "/gallery/IMG_3846.webp", alt: "Foto do evento 32" },
+  { id: 33, src: "/gallery/IMG_3850.webp", alt: "Foto do evento 33" },
+  { id: 34, src: "/gallery/IMG_3852.webp", alt: "Foto do evento 34" },
+  { id: 35, src: "/gallery/IMG_3854.webp", alt: "Foto do evento 35" },
+  { id: 36, src: "/gallery/IMG_3857.webp", alt: "Foto do evento 36" },
+  { id: 37, src: "/gallery/IMG_3859.webp", alt: "Foto do evento 37" },
+  { id: 38, src: "/gallery/IMG_3862.webp", alt: "Foto do evento 38" },
+  { id: 39, src: "/gallery/IMG_3865.webp", alt: "Foto do evento 39" },
+  { id: 40, src: "/gallery/IMG_3870.webp", alt: "Foto do evento 40" },
+  { id: 41, src: "/gallery/IMG_3875.webp", alt: "Foto do evento 41" },
+  { id: 42, src: "/gallery/IMG_3878.webp", alt: "Foto do evento 42" },
+  { id: 43, src: "/gallery/IMG_3882.webp", alt: "Foto do evento 43" },
+  { id: 44, src: "/gallery/IMG_3883.webp", alt: "Foto do evento 44" },
+  { id: 45, src: "/gallery/IMG_3885.webp", alt: "Foto do evento 45" },
+  { id: 46, src: "/gallery/IMG_3887.webp", alt: "Foto do evento 46" },
+  { id: 47, src: "/gallery/IMG_3890.webp", alt: "Foto do evento 47" },
+  { id: 48, src: "/gallery/IMG_3892.webp", alt: "Foto do evento 48" },
+  { id: 49, src: "/gallery/IMG_3893.webp", alt: "Foto do evento 49" },
+  { id: 50, src: "/gallery/IMG_3897.webp", alt: "Foto do evento 50" },
+  { id: 51, src: "/gallery/IMG_3900.webp", alt: "Foto do evento 51" },
+  { id: 52, src: "/gallery/IMG_3901.webp", alt: "Foto do evento 52" },
+  { id: 53, src: "/gallery/IMG_3909.webp", alt: "Foto do evento 53" },
+  { id: 54, src: "/gallery/IMG_3919.webp", alt: "Foto do evento 54" },
+  { id: 55, src: "/gallery/IMG_3943.webp", alt: "Foto do evento 55" },
+  { id: 56, src: "/gallery/IMG_3949.webp", alt: "Foto do evento 56" },
+  { id: 57, src: "/gallery/IMG_3962.webp", alt: "Foto do evento 57" },
+  { id: 58, src: "/gallery/IMG_3978.webp", alt: "Foto do evento 58" },
+  { id: 59, src: "/gallery/IMG_3981.webp", alt: "Foto do evento 59" },
+  { id: 60, src: "/gallery/IMG_3982.webp", alt: "Foto do evento 60" },
+  { id: 61, src: "/gallery/IMG_3985.webp", alt: "Foto do evento 61" },
+  { id: 62, src: "/gallery/IMG_3995.webp", alt: "Foto do evento 62" },
+  { id: 63, src: "/gallery/IMG_4004.webp", alt: "Foto do evento 63" },
+  { id: 64, src: "/gallery/IMG_4006.webp", alt: "Foto do evento 64" },
+  { id: 65, src: "/gallery/IMG_4010.webp", alt: "Foto do evento 65" },
+  { id: 66, src: "/gallery/IMG_4011.webp", alt: "Foto do evento 66" },
+  { id: 67, src: "/gallery/IMG_4015.webp", alt: "Foto do evento 67" },
+  { id: 68, src: "/gallery/IMG_4019.webp", alt: "Foto do evento 68" },
+  { id: 69, src: "/gallery/IMG_4020.webp", alt: "Foto do evento 69" },
+  { id: 70, src: "/gallery/IMG_4022.webp", alt: "Foto do evento 70" },
+  { id: 71, src: "/gallery/IMG_4025.webp", alt: "Foto do evento 71" },
+  { id: 72, src: "/gallery/IMG_4026.webp", alt: "Foto do evento 72" },
+  { id: 73, src: "/gallery/IMG_4029.webp", alt: "Foto do evento 73" },
+  { id: 74, src: "/gallery/IMG_4030.webp", alt: "Foto do evento 74" },
+  { id: 75, src: "/gallery/IMG_4031.webp", alt: "Foto do evento 75" },
+  { id: 76, src: "/gallery/IMG_4033.webp", alt: "Foto do evento 76" },
+  { id: 77, src: "/gallery/IMG_4034.webp", alt: "Foto do evento 77" },
+  { id: 78, src: "/gallery/IMG_4035.webp", alt: "Foto do evento 78" },
+  { id: 79, src: "/gallery/IMG_4036.webp", alt: "Foto do evento 79" },
+  { id: 80, src: "/gallery/IMG_4037.webp", alt: "Foto do evento 80" },
+  { id: 81, src: "/gallery/IMG_4038.webp", alt: "Foto do evento 81" },
+  { id: 82, src: "/gallery/IMG_4039.webp", alt: "Foto do evento 82" },
+  { id: 83, src: "/gallery/IMG_4041.webp", alt: "Foto do evento 83" },
+  { id: 84, src: "/gallery/IMG_4043.webp", alt: "Foto do evento 84" },
+  { id: 85, src: "/gallery/IMG_4045.webp", alt: "Foto do evento 85" },
+  { id: 86, src: "/gallery/IMG_4046.webp", alt: "Foto do evento 86" },
+  { id: 87, src: "/gallery/IMG_4047.webp", alt: "Foto do evento 87" },
+  { id: 88, src: "/gallery/IMG_4049.webp", alt: "Foto do evento 88" },
+  { id: 89, src: "/gallery/IMG_4051.webp", alt: "Foto do evento 89" },
+  { id: 90, src: "/gallery/IMG_4052.webp", alt: "Foto do evento 90" },
+  { id: 91, src: "/gallery/IMG_4057.webp", alt: "Foto do evento 91" },
+  { id: 92, src: "/gallery/IMG_4058.webp", alt: "Foto do evento 92" },
+  { id: 93, src: "/gallery/IMG_4059.webp", alt: "Foto do evento 93" },
+  { id: 94, src: "/gallery/IMG_4061.webp", alt: "Foto do evento 94" },
+  { id: 95, src: "/gallery/IMG_4064.webp", alt: "Foto do evento 95" },
+  { id: 96, src: "/gallery/IMG_4070.webp", alt: "Foto do evento 96" },
+  { id: 97, src: "/gallery/IMG_4076.webp", alt: "Foto do evento 97" },
+  { id: 98, src: "/gallery/IMG_4078.webp", alt: "Foto do evento 98" },
+  { id: 99, src: "/gallery/IMG_4080.webp", alt: "Foto do evento 99" },
+  { id: 100, src: "/gallery/IMG_4083.webp", alt: "Foto do evento 100" },
 ]
 
 const STORAGE_KEY = "streetwear-feedback-completed"
@@ -113,53 +206,49 @@ export function Gallery() {
         </motion.div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={image.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative aspect-square overflow-hidden ${
-                !hasCompletedFeedback ? "cursor-pointer" : ""
-              }`}
-              onClick={handleImageClick}
-            >
-              {/* Placeholder background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted/50" />
-              
-              {/* Decorative pattern */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.05)_10px,rgba(255,255,255,0.05)_20px)]" />
-              </div>
-
-              {/* Blur overlay when not unlocked */}
-              {!hasCompletedFeedback && (
-                <div className="absolute inset-0 backdrop-blur-xl bg-black/30 flex flex-col items-center justify-center gap-2 group-hover:bg-black/40 transition-colors">
-                  <Lock className="w-8 h-8 text-white/80" />
-                  <span className="text-white/80 text-sm font-medium text-center px-4">
-                    Responda para desbloquear
-                  </span>
+        
+        
+        {!hasCompletedFeedback && (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={image.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`relative aspect-square overflow-hidden ${
+                  !hasCompletedFeedback ? "cursor-pointer" : ""
+                }`}
+                onClick={handleImageClick}
+              >
+                {/* Placeholder background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted/50" />
+                
+                {/* Decorative pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.05)_10px,rgba(255,255,255,0.05)_20px)]" />
                 </div>
-              )}
 
-              {/* Unlocked state */}
-              {hasCompletedFeedback && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <Eye className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                    <span className="text-sm opacity-50">Em breve</span>
+                {/* Blur overlay when not unlocked */}
+                {!hasCompletedFeedback && (
+                  <div className="absolute inset-0 backdrop-blur-xl bg-black/30 flex flex-col items-center justify-center gap-2 group-hover:bg-black/40 transition-colors">
+                    <Lock className="w-8 h-8 text-white/80" />
+                    <span className="text-white/80 text-sm font-medium text-center px-4">
+                      Responda para desbloquear
+                    </span>
                   </div>
-                </div>
-              )}
-
-              {/* Hover effect */}
-              {!hasCompletedFeedback && (
-                <div className="absolute inset-0 bg-primary/0 hover:bg-primary/10 transition-colors duration-300" />
-              )}
-            </motion.div>
-          ))}
+                )}
+                {/* Hover effect */}
+                {!hasCompletedFeedback && (
+                  <div className="absolute inset-0 bg-primary/0 hover:bg-primary/10 transition-colors duration-300" />
+                )}
+              </motion.div>
+            ))}
         </div>
+        )}
+        {hasCompletedFeedback && (
+          <ImageGallery images={galleryImages} showThumbnails={false} />
+        )}
 
         {/* Feedback Modal */}
         <AnimatePresence>
