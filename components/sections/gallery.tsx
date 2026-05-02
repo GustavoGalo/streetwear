@@ -205,20 +205,16 @@ export function Gallery() {
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
-        
-        
+        {/* Gallery Grid - Locked State (Limited to 6 containers) */}
         {!hasCompletedFeedback && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryImages.map((image, index) => (
+            {galleryImages.slice(0, 6).map((image, index) => (
               <motion.div
                 key={image.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative aspect-square overflow-hidden ${
-                  !hasCompletedFeedback ? "cursor-pointer" : ""
-                }`}
+                className="relative aspect-square overflow-hidden cursor-pointer group"
                 onClick={handleImageClick}
               >
                 {/* Placeholder background */}
@@ -230,21 +226,18 @@ export function Gallery() {
                 </div>
 
                 {/* Blur overlay when not unlocked */}
-                {!hasCompletedFeedback && (
-                  <div className="absolute inset-0 backdrop-blur-xl bg-black/30 flex flex-col items-center justify-center gap-2 group-hover:bg-black/40 transition-colors">
-                    <Lock className="w-8 h-8 text-white/80" />
-                    <span className="text-white/80 text-sm font-medium text-center px-4">
-                      Responda para desbloquear
-                    </span>
-                  </div>
-                )}
+                <div className="absolute inset-0 backdrop-blur-xl bg-black/30 flex flex-col items-center justify-center gap-2 group-hover:bg-black/40 transition-colors">
+                  <Lock className="w-8 h-8 text-white/80" />
+                  <span className="text-white/80 text-sm font-medium text-center px-4">
+                    Responda para desbloquear
+                  </span>
+                </div>
+
                 {/* Hover effect */}
-                {!hasCompletedFeedback && (
-                  <div className="absolute inset-0 bg-primary/0 hover:bg-primary/10 transition-colors duration-300" />
-                )}
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
               </motion.div>
             ))}
-        </div>
+          </div>
         )}
         {hasCompletedFeedback && (
           <ImageGallery images={galleryImages} showThumbnails={false} />
